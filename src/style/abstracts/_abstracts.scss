@@ -1,0 +1,25 @@
+.Heading {
+  font-size: 24px;
+  font-family: $font-bold;
+  color: $primary-color;
+}
+
+// Btns
+.btn {
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: $font-medium;
+  height: 40px;
+  padding: 0 24px;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  color: $light-color;
+}
+
+.btn-secondary {
+  color: $primary-color;
+  background-color: $light-color;
+}

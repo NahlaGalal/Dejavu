@@ -1,5 +1,6 @@
 export interface IUser {
   token: string;
+  errors: any;
 }
 
 export interface IStore {

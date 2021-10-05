@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  font-family: "Lato";
+  font-family: $font-regular;
+  min-height: 100vh;
 }
 
 * {
@@ -29,7 +30,7 @@ input,
 button,
 textarea,
 select {
-  font-family: "Lato";
+  font-family: $font-regular;
   border: 0;
   box-shadow: none;
   outline: 0.0001px;

@@ -9,7 +9,7 @@ export default registerActionTypes;
 export interface LoginAction {
   type: registerActionTypes.LOGIN_USER_SAGA;
   data: {
-    userName: string;
+    username: string;
     password: string;
   };
 }

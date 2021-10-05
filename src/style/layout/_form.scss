@@ -1,0 +1,107 @@
+.Register {
+  background-image: url("../../images/login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__form {
+    background-color: $back-color;
+    max-width: 596px;
+    width: 90%;
+    padding: 40px;
+    margin: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+
+    &__logo {
+      max-width: 245px;
+      margin-bottom: 40px;
+    }
+
+    .Heading {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    &__group {
+      position: relative;
+      margin-bottom: 24px;
+      max-width: 346px;
+      width: 100%;
+      
+      input {
+        height: 40px;
+        border-radius: 5px;
+        padding: 0 16px;
+        width: 100%;
+        font-size: 14px;
+        color: $primary-color;
+
+        &:focus + label, &.active + label {
+          top: 28px;
+          background-color: $secondary-color;
+          color: $info-color;
+          font-size: 12px;
+        }
+      }
+
+      label {
+        position: absolute;
+        top: 11px;
+        left: 0;
+        width: 100%;
+        font-size: 14px;
+        color: $secondary-color;
+        padding-left: 16px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        transition: $transition;
+      }
+
+      &__error {
+        margin-top: 8px;
+        color: $secondary-color;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 16px;
+          height: 16px;
+          margin-right: 4px;
+        }
+      }
+    }
+
+    &__submit {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 346px;
+      
+      a {
+        color: $primary-color;
+        font-family: $font-medium;
+      }
+    }
+    
+    &__link {
+      margin-top: 40px;
+      color: $secondary-color;
+      text-align: center;
+
+      a {
+        color: $primary-color;
+        font-family: $font-medium;
+      }
+    }
+  }
+}

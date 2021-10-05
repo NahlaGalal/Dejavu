@@ -59,7 +59,7 @@ export function* helperSaga({
       payload: false,
     });
     return payload;
-  } catch (err) {
+  } catch (err: any) {
     if (err.response) {
       let { statusCode, errors } = err.response.data;
 
@@ -135,7 +135,7 @@ export function* helperSagaUnAuth({
       payload: false,
     });
     return payload;
-  } catch (err) {
+  } catch (err: any) {
     let { statusCode, errors } = err.response.data;
     yield put({
       type: actionTypes.LOADING,

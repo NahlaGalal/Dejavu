@@ -6,7 +6,7 @@ function* LoginUser({ data }: registerActions.LoginAction) {
   yield helperSagaUnAuth({
     actionType: actionTypes.LOGIN_USER,
     type: "post",
-    url: "Accounts/Login",
+    url: "/login/",
     data,
   });
 }
