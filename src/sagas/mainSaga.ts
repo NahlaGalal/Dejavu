@@ -60,28 +60,28 @@ export function* helperSaga({
     });
     return payload;
   } catch (err: any) {
-    if (err.response) {
-      let { statusCode, errors } = err.response.data;
+    const errors = err.response.data;
+    const status = err.response.status;
 
+    yield put({
+      type: actionTypes.LOADING,
+      payload: false,
+    });
+
+    if (status === 400) {
       yield put({
-        type: actionTypes.LOADING,
-        payload: false,
+        type: actionType,
+        payload: {},
+        errors,
+        isFailed: true,
       });
-
-      if (statusCode === 400) {
-        yield put({
-          type: actionType,
-          payload: errors,
-          isFailed: true,
-        });
-      }
-      if (statusCode >= 400 && statusCode !== 422) {
-        yield put({
-          type: actionTypes.API_ERROR,
-          payload: statusCode,
-          isFailed: true,
-        });
-      }
+    }
+    if (status >= 400) {
+      yield put({
+        type: actionTypes.API_ERROR,
+        payload: status,
+        isFailed: true,
+      });
     }
   }
 }
@@ -136,23 +136,26 @@ export function* helperSagaUnAuth({
     });
     return payload;
   } catch (err: any) {
-    let { statusCode, errors } = err.response.data;
+    const errors = err.response.data;
+    const status = err.response.status;
+
     yield put({
       type: actionTypes.LOADING,
       payload: false,
     });
 
-    if (statusCode === 400) {
+    if (status === 400) {
       yield put({
         type: actionType,
-        payload: errors,
+        payload: {},
+        errors,
         isFailed: true,
       });
     }
-    if (statusCode >= 400) {
+    if (status >= 400) {
       yield put({
         type: actionTypes.API_ERROR,
-        payload: statusCode,
+        payload: status,
         isFailed: true,
       });
     }

@@ -14,12 +14,19 @@ const user = (state: IUser, action: Iaction) => {
       return {
         ...state,
         token: action.isFailed ? state.token : action.payload.token,
-        errors: !action.isFailed ? {} : action.errors,
+        errors: !action.isFailed ? [] : action.errors,
       };
+    case actionTypes.SIGNUP_USER:
+      return {
+        ...state,
+        token: action.isFailed ? state.token : action.payload.auth_token,
+        errors: !action.isFailed ? [] : action.errors
+      }
     case actionTypes.LOGOUT_USER:
       return {
         ...state,
-        token: ""
+        token: "",
+        errors: []
       };
     default:
       return {

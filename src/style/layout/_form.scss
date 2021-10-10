@@ -29,11 +29,21 @@
       text-align: center;
     }
 
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
     &__group {
       position: relative;
       margin-bottom: 24px;
       max-width: 346px;
       width: 100%;
+
+      &--row {
+        max-width: 162px;
+      }
       
       input {
         height: 40px;
@@ -77,6 +87,11 @@
           margin-right: 4px;
         }
       }
+    }
+
+    &__server-errors {
+      align-self: flex-start;
+      margin-bottom: 8px;
     }
 
     &__submit {
