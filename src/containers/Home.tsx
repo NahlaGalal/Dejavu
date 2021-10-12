@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { actionTypes } from "../actionTypes";
 import Navbar from "../components/Navbar";
@@ -12,14 +12,47 @@ interface Props {
   getSliders: () => void;
 }
 
-const Home: React.FC<Props> = ({ token, loading, errors, sliders, getSliders }) => {
-  // useEffect(() => {
-  //   getSliders();
-  // }, [getSliders]);
+const Home: React.FC<Props> = ({
+  token,
+  loading,
+  errors,
+  sliders,
+  getSliders,
+}) => {
+  const [activeSlide, setActiveSlide] = useState<number>(0);
 
-  return <div>
-    <Navbar auth={!!token}/>
-  </div>;
+  useEffect(() => {
+    getSliders();
+  }, [getSliders]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide(activeSlide >= sliders.length - 1 ? 0 : activeSlide + 1);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [activeSlide, sliders.length]);
+
+  return (
+    <div className="Home">
+      <header className="Home__header">
+        <Navbar auth={!!token} />
+        {sliders.map((slider, i) => (
+          <div
+            className={`Home__header__slide ${
+              activeSlide === i ? "active" : ""
+            }`}
+            key={slider.id}
+            style={{ backgroundImage: `url(${slider.background})` }}
+            onClick={() => setActiveSlide(i)}
+          >
+            <h2>{slider.title}</h2>
+            {slider.description && <p>{slider.description}</p>}
+          </div>
+        ))}
+      </header>
+    </div>
+  );
 };
 
 const mapStateToProps = (state: IStore) => ({

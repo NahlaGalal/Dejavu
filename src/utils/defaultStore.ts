@@ -17,5 +17,9 @@ export const defaultStore: IStore = {
     token: loadState().token,
     errors: [],
   },
+  home: {
+    sliders: [],
+    errors: []
+  },
   loading: false,
 };

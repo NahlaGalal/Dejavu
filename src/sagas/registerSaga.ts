@@ -6,7 +6,7 @@ function* LoginUser({ data }: registerActions.LoginAction) {
   yield helperSagaUnAuth({
     actionType: actionTypes.LOGIN_USER,
     type: "post",
-    url: "/login/",
+    url: "/users/login/",
     data,
   });
 }
@@ -15,7 +15,7 @@ function* SignupUser({ data }: registerActions.SignupAction) {
   yield helperSagaUnAuth({
     actionType: actionTypes.SIGNUP_USER,
     type: "post",
-    url: "/register/",
+    url: "/users/register/",
     data,
   });
 }
