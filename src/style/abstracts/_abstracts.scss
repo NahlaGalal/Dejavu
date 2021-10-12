@@ -6,6 +6,9 @@
 
 // Btns
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid $primary-color;
   border-radius: 5px;
   font-size: 16px;
