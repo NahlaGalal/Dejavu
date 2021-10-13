@@ -18,16 +18,16 @@ interface IData {
 }
 
 interface Props {
-  token: string;
   errors: any;
+  success: any;
   loading: boolean;
   signupUser: (data: IData) => void;
   history: any;
 }
 
 const Signup: React.FC<Props> = ({
-  token,
   errors,
+  success,
   loading,
   signupUser,
   history,
@@ -68,11 +68,11 @@ const Signup: React.FC<Props> = ({
 
   useEffect(() => {
     // Success
-    if (token) history.push("/");
+    if (success.signup) history.push("/login");
     // Errors
     if (JSON.stringify(errors))
       setServerErrors((s: any) => ({ ...s, ...errors }));
-  }, [token, history, errors]);
+  }, [success, history, errors]);
 
   const blurHandler = (e: any) => {
     if (e.target.value) e.target.classList.add("active");
@@ -250,7 +250,7 @@ const Signup: React.FC<Props> = ({
 };
 
 const mapStateToProps = (state: IStore) => ({
-  token: state.user.token,
+  success: state.user.success,
   loading: state.loading,
   errors: state.user.errors,
 });

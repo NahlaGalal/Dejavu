@@ -1,5 +1,6 @@
 export interface IUser {
   token: string;
+  success: any;
   errors: any;
 }
 

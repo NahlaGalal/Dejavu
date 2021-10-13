@@ -15,6 +15,7 @@ const loadState = () =>
 export const defaultStore: IStore = {
   user: {
     token: loadState().token,
+    success: {},
     errors: [],
   },
   home: {
