@@ -113,7 +113,7 @@ const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
             </Link>
           </li>
           <li>
-            <Link to="/">
+            <Link to="/profile">
               <FiUser size={24} title="Profile" />
             </Link>
           </li>

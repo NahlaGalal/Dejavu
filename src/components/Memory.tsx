@@ -10,6 +10,7 @@ import {
   BsChatText,
   BsBell,
 } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import Attachement from "./Attachement";
 import Comment from "./Comment";
 
@@ -54,7 +55,6 @@ const Memory: React.FC<Props> = ({ user, content, isOwnProfile }) => {
     const images = content.images
       ? content.images.map((img) => ({ url: img, type: "Image" }))
       : [];
-    // console.log([...videos, ...images])
     setAttachments([...videos, ...images]);
   }, [content]);
 
@@ -69,11 +69,13 @@ const Memory: React.FC<Props> = ({ user, content, isOwnProfile }) => {
         <div className="Profile__main__user_data__name">
           {/* User full name */}
           <p className="Profile__main__user_data__name__full">
-            {user.first_name} {user.last_name}
+            <Link to={`/user/${user.username}`}>
+              {user.first_name} {user.last_name}
+            </Link>
           </p>
           {/* User user name */}
           <p className="Profile__main__user_data__name__user">
-            @{user.username}
+            <Link to={`/user/${user.username}`}>@{user.username}</Link>
           </p>
         </div>
         <div className="Memory__controls">
@@ -134,9 +136,20 @@ const Memory: React.FC<Props> = ({ user, content, isOwnProfile }) => {
             title="Users tagged in memory"
             color="#2F0B4D"
           />
-          {content.usernames.length === 1
-            ? content.usernames[0]
-            : `${content.usernames[0]}, ${content.usernames[1]} `}
+          {content.usernames.length === 1 ? (
+            <Link to={`/user/${content.usernames[0]}`}>
+              {content.usernames[0]}
+            </Link>
+          ) : (
+            <>
+              <Link to={`/user/${content.usernames[0]}`}>
+                {content.usernames[0]}
+              </Link>{", "}
+              <Link to={`/user/${content.usernames[1]}`}>
+                {content.usernames[1]}
+              </Link>{" "}
+            </>
+          )}
           {content.usernames.length > 2 && (
             <button> and {content.usernames.length - 2} others</button>
           )}

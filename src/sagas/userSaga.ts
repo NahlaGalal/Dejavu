@@ -11,6 +11,16 @@ function* GetProfile({ token }: userActions.GetProfileAction) {
   });
 }
 
+function* GetUserData({ token, username }: userActions.GetUserAction) {
+  yield helperSaga({
+    actionType: actionTypes.GET_USER,
+    token,
+    type: "get",
+    url: `/users/details/${username}/`,
+  });
+}
+
 export function* watchUserSaga() {
   yield takeEvery(actionTypes.GET_PROFILE_SAGA, GetProfile);
+  yield takeEvery(actionTypes.GET_USER_SAGA, GetUserData);
 }

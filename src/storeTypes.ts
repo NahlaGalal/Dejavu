@@ -23,6 +23,7 @@ export interface IUsers {
     avatar: string;
     bio: string;
   },
+  user: IUsers["profile"];
   errors: any;
 }
 

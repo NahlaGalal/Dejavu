@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { actionTypes } from "../actionTypes";
-import Memory from "../components/Memory";
-import Navbar from "../components/Navbar";
+import Loading from "../components/Loading";
+import Profile from "../components/Profile";
 import { IStore, IUsers } from "../storeTypes";
 
 interface Props {
@@ -97,74 +97,15 @@ const memories = [
   },
 ];
 
-const Profile: React.FC<Props> = ({ token, loading, getProfile, profile }) => {
+const Me: React.FC<Props> = ({ token, loading, getProfile, profile }) => {
   useEffect(() => {
     getProfile(token);
   }, [token, getProfile]);
 
-  return (
-    <div className="Profile">
-      <header className="Profile__header">
-        {/* Navbar */}
-        <Navbar />
-        {/* User cover */}
-        <div className="Profile__header__cover">
-          <img
-            src="https://dejavu99.herokuapp.com/media/sliders/5cd3605b2100003000d37f48.jpeg"
-            alt="Cover for profile"
-          />
-        </div>
-      </header>
-      <main className="Profile__main">
-        <div className="Profile__main__user_data">
-          <div className="Profile__main__user_data__avatar">
-            {/* User avatar */}
-            <img
-              src={`https://dejavu99.herokuapp.com${profile.avatar}`}
-              alt="User avatar"
-            />
-          </div>
-          <div className="Profile__main__user_data__name">
-            {/* User full name */}
-            <p className="Profile__main__user_data__name__full">
-              {profile.first_name} {profile.last_name}
-            </p>
-            {/* User user name */}
-            <p className="Profile__main__user_data__name__user">
-              @{profile.username}
-            </p>
-          </div>
-          {/* Create gang */}
-          <button className="btn btn-primary">Create gang</button>
-        </div>
-
-        <div className="Profile__main__details">
-          <section className="Profile__main__details__bio">
-            <h2>Bio</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Ullamcorper at tellus integer ac gravida. Sed urna sed auctor
-              pellentesque. Eu non sit amet, sed adipiscing cursus rhoncus velit
-              in. Vivamus dolor porttitor sit arcu luctus id. Cursus
-              sollicitudin pulvinar sagittis posuere quam lectus nibh cursus.
-              Amet, pharetra, et, proin aliquet bibendum. Nulla aenean sit in
-              mattis.
-            </p>
-          </section>
-
-          <section className="Profile__main__details__memories">
-            {memories.map((memory, i) => (
-              <Memory
-                user={memory.user}
-                content={memory.content}
-                isOwnProfile={true}
-                key={i}
-              />
-            ))}
-          </section>
-        </div>
-      </main>
-    </div>
+  return loading ? (
+    <Loading />
+  ) : (
+    <Profile memories={memories} profile={profile} isOwnProfile={true} />
   );
 };
 
@@ -179,4 +120,4 @@ const mapDispatchToProps = (dispatch: any) => ({
     dispatch({ type: actionTypes.GET_PROFILE_SAGA, token }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Me);

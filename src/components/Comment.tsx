@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
   user: {
@@ -25,10 +26,12 @@ const Comment: React.FC<Props> = ({ user, body, replies }) => {
         {/* Comment publisher full name and user name */}
         <div className="Profile__main__user_data__name">
           <p className="Profile__main__user_data__name__full">
-            {user.first_name} {user.last_name}
+            <Link to={`/user/${user.username}`}>
+              {user.first_name} {user.last_name}
+            </Link>
           </p>
           <p className="Profile__main__user_data__name__user">
-            @{user.username}
+            <Link to={`/user/${user.username}`}>@{user.username}</Link>
           </p>
         </div>
       </div>
@@ -45,10 +48,14 @@ const Comment: React.FC<Props> = ({ user, body, replies }) => {
             {/* Reply publisher full name and user name */}
             <div className="Profile__main__user_data__name">
               <p className="Profile__main__user_data__name__full">
-                {reply.user.first_name} {reply.user.last_name}
+                <Link to={`/user/${reply.user.username}`}>
+                  {reply.user.first_name} {reply.user.last_name}
+                </Link>
               </p>
               <p className="Profile__main__user_data__name__user">
-                @{reply.user.username}
+                <Link to={`/user/${reply.user.username}`}>
+                  @{reply.user.username}
+                </Link>
               </p>
             </div>
           </div>

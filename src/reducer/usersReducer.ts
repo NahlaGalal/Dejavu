@@ -16,6 +16,12 @@ const users = (state: IUsers, action: Iaction) => {
         profile: action.isFailed ? state.profile : action.payload,
         errors: !action.isFailed ? [] : action.errors,
       };
+    case actionTypes.GET_USER:
+      return {
+        ...state,
+        user: action.isFailed ? state.user : action.payload,
+        errors: !action.isFailed ? [] : action.errors,
+      };
     default:
       return {
         ...state,
