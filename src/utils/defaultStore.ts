@@ -20,7 +20,18 @@ export const defaultStore: IStore = {
   },
   home: {
     sliders: [],
-    errors: []
+    errors: [],
+  },
+  users: {
+    profile: {
+      id: "",
+      username: "",
+      first_name: "",
+      last_name: "",
+      avatar: "",
+      bio: "",
+    },
+    errors: [],
   },
   loading: false,
 };

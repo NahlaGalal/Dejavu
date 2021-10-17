@@ -14,8 +14,21 @@ export interface IHome {
   errors: any;
 }
 
+export interface IUsers {
+  profile: {
+    id: string;
+    username: string;
+    first_name: string;
+    last_name: string;
+    avatar: string;
+    bio: string;
+  },
+  errors: any;
+}
+
 export interface IStore {
   user: IUser;
   home: IHome;
+  users: IUsers;
   loading: boolean;
 }

@@ -31,7 +31,7 @@ export function* helperSaga({
       type === "post" || type === "put"
         ? axios[type](url, data, {
             headers: {
-              Authorization: `Bearer ${newToken}`,
+              Authorization: `Token ${newToken}`,
               Accept: "application/json",
               "Content-Type": "application/json;charset=UTF-8",
               ...headers,
@@ -39,7 +39,7 @@ export function* helperSaga({
           })
         : axios[type](url, {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Token ${token}`,
               Accept: "application/json",
               "Content-Type": "application/json;charset=UTF-8",
               ...headers,

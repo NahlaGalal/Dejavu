@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FiHome,
@@ -21,12 +21,17 @@ interface Props {
 }
 
 const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
+  const [activeTab, setActiveTab] = useState("Home");
   const history = useHistory();
 
   const logoutHandler = () => {
     logoutUser();
     history.push("/");
   };
+
+  useEffect(() => {
+    setActiveTab(history.location.pathname);
+  }, [history]);
 
   return (
     <>
@@ -36,12 +41,15 @@ const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
           <>
             <ul className="Navbar__links">
               <li>
-                <Link to="/" className="active">
+                <Link to="/" className={activeTab === "/" ? "active" : ""}>
                   <FiHome size={24} title="Home" />
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link
+                  to="/profile"
+                  className={activeTab === "/profile" ? "active" : ""}
+                >
                   <FiUser size={24} title="Profile" />
                 </Link>
               </li>
