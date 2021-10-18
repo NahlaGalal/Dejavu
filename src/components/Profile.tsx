@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Memory from "../components/Memory";
 import Navbar from "../components/Navbar";
 import { IUsers } from "../storeTypes";
+import CreateGang from "./Popups/CreateGang";
 
 interface Props {
   profile: IUsers["profile"];
@@ -42,9 +43,23 @@ interface Props {
     };
   }[];
   isOwnProfile: boolean;
+  loading?: boolean;
+  history?: any;
+  success?: any;
+  errors?: any;
 }
 
-const Profile: React.FC<Props> = ({ profile, memories, isOwnProfile }) => {
+const Profile: React.FC<Props> = ({
+  profile,
+  memories,
+  isOwnProfile,
+  loading,
+  history,
+  success,
+  errors,
+}) => {
+  const [createGangOverlay, setCreateGangOverlay] = useState<boolean>(false);
+
   return (
     <div className="Profile">
       <header className="Profile__header">
@@ -79,7 +94,12 @@ const Profile: React.FC<Props> = ({ profile, memories, isOwnProfile }) => {
           </div>
           {/* Create gang */}
           {isOwnProfile && (
-            <button className="btn btn-primary">Create gang</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setCreateGangOverlay(true)}
+            >
+              Create gang
+            </button>
           )}
         </div>
 
@@ -121,6 +141,16 @@ const Profile: React.FC<Props> = ({ profile, memories, isOwnProfile }) => {
           </section>
         </div>
       </main>
+
+      {createGangOverlay && (
+        <CreateGang
+          errors={errors}
+          history={history}
+          loading={loading || false}
+          success={success}
+          onClose={() => setCreateGangOverlay(false)}
+        />
+      )}
     </div>
   );
 };

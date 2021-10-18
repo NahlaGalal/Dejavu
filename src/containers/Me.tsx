@@ -10,6 +10,7 @@ interface Props {
   loading: boolean;
   profile: IUsers["profile"];
   getProfile: (token: string) => void;
+  history: any;
 }
 
 const memories = [
@@ -97,7 +98,7 @@ const memories = [
   },
 ];
 
-const Me: React.FC<Props> = ({ token, loading, getProfile, profile }) => {
+const Me: React.FC<Props> = ({ token, loading, getProfile, profile, history }) => {
   useEffect(() => {
     getProfile(token);
   }, [token, getProfile]);
@@ -105,7 +106,7 @@ const Me: React.FC<Props> = ({ token, loading, getProfile, profile }) => {
   return loading ? (
     <Loading />
   ) : (
-    <Profile memories={memories} profile={profile} isOwnProfile={true} />
+    <Profile memories={memories} profile={profile} isOwnProfile={true} loading={loading} history={history} errors={[]} success={{}} />
   );
 };
 

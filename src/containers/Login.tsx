@@ -7,7 +7,7 @@ import Logo from "../images/logo.svg";
 import { IStore } from "../storeTypes";
 import { actionTypes } from "../actionTypes";
 import Loading from "../components/Loading";
-import WarningIcon from "../images/warning.svg";
+import { BsExclamationTriangleFill } from "react-icons/bs";
 
 interface Props {
   token: string;
@@ -89,7 +89,7 @@ const Login: React.FC<Props> = ({
                   <ErrorMessage name="username">
                     {(msg) => (
                       <p className="Register__form__group__error">
-                        <img src={WarningIcon} alt="warning icon" />
+                        <BsExclamationTriangleFill color="#F7FFAE" size={16} />
                         {msg}
                       </p>
                     )}
@@ -107,7 +107,7 @@ const Login: React.FC<Props> = ({
                   <ErrorMessage name="password">
                     {(msg) => (
                       <p className="Register__form__group__error">
-                        <img src={WarningIcon} alt="warning icon" />
+                        <BsExclamationTriangleFill color="#F7FFAE" size={16} />
                         {msg}
                       </p>
                     )}
@@ -119,7 +119,7 @@ const Login: React.FC<Props> = ({
                     .filter((key) => serverErrors[key].length)
                     .map((key) => (
                       <p className="Register__form__group__error" key={key}>
-                        <img src={WarningIcon} alt="warning icon" />
+                        <BsExclamationTriangleFill color="#F7FFAE" size={16} />
                         {serverErrors[key][0]}
                       </p>
                     ))}

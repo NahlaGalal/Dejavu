@@ -1,0 +1,73 @@
+.Create_gang {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 40px;
+    font-family: $font-bold;
+    color: $primary-color;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .Register__form__submit,
+  .Register__form__server-errors,
+  .Register__form__group {
+    margin-left: auto;
+    margin-right: auto;
+
+    .btn {
+      margin: 24px auto auto;
+    }
+  }
+
+  .Register__form__group__error {
+    margin-top: 4px;
+  }
+
+  .Register__form__group {
+    margin-bottom: 16px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &--selected {
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+
+      &:empty {
+        margin-bottom: 0;
+      }
+
+      &__btn {
+        margin: 0;
+        border-radius: 5px;
+        padding: 8px;
+        background-color: $info-color;
+        color: $primary-color;
+      }
+    }
+
+    &__suggestions {
+      background-color: $light-color;
+      padding: 16px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      margin-top: 1px;
+
+      &__active {
+        background-color: $back-color;
+        padding: 8px;
+        border-radius: 5px;
+      }
+      
+      .react-tags__suggestion-prefix {
+        color: red;
+        background-color: red;
+      }
+    }
+  }
+}
