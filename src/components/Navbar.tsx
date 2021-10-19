@@ -111,17 +111,17 @@ const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
       <nav className="MobileNavbar">
         <ul>
           <li>
-            <Link to="/" className="active">
+            <Link to="/" className={activeTab === "/" ? "active" : ""}>
               <FiHome size={24} title="Home" />
             </Link>
           </li>
           <li>
-            <Link to="/profile">
+            <Link to="/profile" className={activeTab === "/profile" ? "active" : ""}>
               <FiUser size={24} title="Profile" />
             </Link>
           </li>
           <li>
-            <Link to="/gangs">
+            <Link to="/gangs" className={activeTab === "/gangs" ? "active" : ""}>
               <FiUsers size={24} title="Gangs" />
             </Link>
           </li>

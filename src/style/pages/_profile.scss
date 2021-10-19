@@ -20,8 +20,9 @@
 
     &__user_data {
       display: flex;
-      gap: 24px;
+      gap: 8px 24px;
       align-items: center;
+      flex-wrap: wrap;
 
       &__avatar {
         padding: 16px;
@@ -50,7 +51,6 @@
       }
 
       button {
-        margin-top: 16px;
         margin-left: auto;
       }
     }
@@ -61,11 +61,22 @@
       gap: 24px;
       position: relative;
 
+      @media screen and (max-width: 800px) {
+        flex-direction: column;
+      }
+
+      @media screen and (max-width: 589px) {
+        margin-bottom: 72px;
+      }
+
       &__bio {
         flex: 1;
-        position: sticky;
         top: 16px;
         height: max-content;
+
+        @media screen and (min-width: 801px) {
+          position: sticky;
+        }
 
         h2 {
           color: $primary-color;
@@ -74,7 +85,8 @@
           margin-bottom: 8px;
         }
 
-        p, li {
+        p,
+        li {
           color: $secondary-color;
         }
 

@@ -23,7 +23,7 @@ const Attachement: React.FC<Props> = ({ attachment, data_num, style }) => {
       {attachment.type === "Video" ? (
         <>
           <video src={attachment.url} style={style} />
-          <BsCameraVideo size={100} title="Video" color="#FFFFE7" />
+          <BsCameraVideo size={100} title="Video" color="#FFFFE7"/>
         </>
       ) : (
         <img src={attachment.url} alt="" style={style ? style : {}} />

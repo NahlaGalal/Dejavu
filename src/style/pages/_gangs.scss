@@ -18,6 +18,10 @@
     grid-gap: 24px;
     padding-bottom: 16px;
 
+    @media screen and (max-width: 589px) {
+      margin-bottom: 56px;
+    }
+
     &__gang {
       background-color: $back-color;
       background-blend-mode: overlay;
