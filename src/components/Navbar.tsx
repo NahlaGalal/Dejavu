@@ -54,7 +54,10 @@ const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link
+                  to="/gangs"
+                  className={activeTab === "/gangs" ? "active" : ""}
+                >
                   <FiUsers size={24} title="Gangs" />
                 </Link>
               </li>
@@ -118,7 +121,7 @@ const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
             </Link>
           </li>
           <li>
-            <Link to="/">
+            <Link to="/gangs">
               <FiUsers size={24} title="Gangs" />
             </Link>
           </li>

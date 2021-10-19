@@ -1,0 +1,91 @@
+.Gangs {
+  &__header {
+    h1 {
+      width: 80%;
+      font-size: 40px;
+      font-family: $font-bold;
+      text-align: center;
+      color: $primary-color;
+      margin: 40px auto;
+    }
+  }
+
+  &__container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    padding-bottom: 16px;
+
+    &__gang {
+      background-color: $back-color;
+      background-blend-mode: overlay;
+      background-size: contain;
+      border-radius: 20px;
+      padding: 16px;
+      
+      @media screen and (min-width: 1600px) {
+        width: calc(25% - 24px);
+      }
+      @media screen and (min-width: 1100px) and (max-width: 1599px) {
+        width: calc(100% / 3 - 24px);
+      }
+      @media screen and (min-width: 700px) and (max-width: 1099px) {
+        width: calc(50% - 24px);
+      }
+
+      &__name {
+        font-size: 24px;
+        font-family: $font-bold;
+        color: $primary-color;
+        margin-bottom: 8px;
+      }
+
+      &__description {
+        display: -webkit-box;
+        display: -moz-box;
+        color: $secondary-color;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-clamp: 4;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        margin-bottom: 16px;
+      }
+
+      &__open {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &__members {
+          display: flex;
+
+          &__avatar {
+            width: 24px;
+            height: 24px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid $light-color;
+            margin-right: -4px;
+          }
+
+          &__num {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 12px;
+            background-color: $secondary-color;
+            color: $light-color;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
