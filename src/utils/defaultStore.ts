@@ -30,6 +30,7 @@ export const defaultStore: IStore = {
       last_name: "",
       avatar: "",
       bio: "",
+      cover: "",
     },
     user: {
       id: "",
@@ -38,8 +39,15 @@ export const defaultStore: IStore = {
       last_name: "",
       avatar: "",
       bio: "",
+      cover: "",
     },
     errors: [],
+  },
+  memories: {
+    count: 0,
+    next: "",
+    previous: "",
+    results: [],
   },
   loading: false,
 };

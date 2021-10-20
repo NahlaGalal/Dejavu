@@ -11,79 +11,60 @@ import {
   BsBell,
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { IMemory } from "../storeTypes";
 import Attachement from "./Attachement";
-import Comment from "./Comment";
+// import Comment from "./Comment";
 
 interface Props {
-  user: {
-    username: string;
-    first_name: string;
-    last_name: string;
-    avatar: string;
-  };
-  content: {
-    text: string;
-    images?: string[];
-    videos?: string[];
-    isPrivate: boolean;
-    feeling: string;
-    time: string;
-    place?: string;
-    usernames?: string[];
-    comments: {
-      user: Props["user"];
-      body: string;
-      replies: {
-        user: Props["user"];
-        body: string;
-      }[];
-    }[];
-  };
+  memory: IMemory;
   isOwnProfile: boolean;
+  username: string;
 }
 
-const Memory: React.FC<Props> = ({ user, content, isOwnProfile }) => {
+const Memory: React.FC<Props> = ({ memory, isOwnProfile, username }) => {
   const commentsRef = useRef<any>();
   const [attachments, setAttachments] = useState<
     { url: string; type: string }[]
   >([]);
 
   useEffect(() => {
-    const videos = content.videos
-      ? content.videos.map((video) => ({ url: video, type: "Video" }))
+    const videos = memory.videos
+      ? memory.videos.map((url) => ({ url: url.video, type: "Video" }))
       : [];
-    const images = content.images
-      ? content.images.map((img) => ({ url: img, type: "Image" }))
+    const images = memory.images
+      ? memory.images.map((url) => ({ url: url.image, type: "Image" }))
       : [];
     setAttachments([...videos, ...images]);
-  }, [content]);
+  }, [memory]);
 
   return (
     <section className="Memory">
       <div className="Profile__main__user_data">
         <div className="Profile__main__user_data__avatar">
           {/* Memory publisher avatar */}
-          <img src={user.avatar} alt="User avatar" />
+          <img src={memory.author.avatar} alt="User avatar" />
         </div>
         {/* Memory publisher full name and user name */}
         <div className="Profile__main__user_data__name">
           {/* User full name */}
           <p className="Profile__main__user_data__name__full">
-            <Link to={`/user/${user.username}`}>
-              {user.first_name} {user.last_name}
+            <Link to={`/user/${memory.author.username}`}>
+              {memory.author.first_name} {memory.author.last_name}
             </Link>
           </p>
           {/* User user name */}
           <p className="Profile__main__user_data__name__user">
-            <Link to={`/user/${user.username}`}>@{user.username}</Link>
+            <Link to={`/user/${memory.author.username}`}>
+              @{memory.author.username}
+            </Link>
           </p>
         </div>
         <div className="Memory__controls">
-          {isOwnProfile ? (
+          {isOwnProfile || memory.author.username === username ? (
             <>
               {/* Lock / Unlock memory if it's my own profile */}
               <button>
-                {content.isPrivate ? (
+                {!memory.public ? (
                   <BsLock size={24} title="Private memory" color="#2F0B4D" />
                 ) : (
                   <BsUnlock size={24} title="Public memory" color="#2F0B4D" />
@@ -94,7 +75,7 @@ const Memory: React.FC<Props> = ({ user, content, isOwnProfile }) => {
                 <BsTrash size={24} title="Delete memory" color="#2F0B4D" />
               </button>
             </>
-          ) : content.isPrivate ? (
+          ) : !memory.public ? (
             // Show whether the memory is locked or not
             <BsLock size={24} title="Private memory" color="#2F0B4D" />
           ) : (
@@ -111,50 +92,51 @@ const Memory: React.FC<Props> = ({ user, content, isOwnProfile }) => {
             color="#2F0B4D"
           />
           Feeling:
-          <span>{content.feeling}</span>
+          <span>{memory.feeling.name}</span>
         </p>
-        {content.place && (
+        {memory.place && (
           <p>
             <BsGeoAlt size={16} title="Memory location" color="#2F0B4D" />
             Location:
-            <span>{content.place}</span>
+            <span>{memory.place}</span>
           </p>
         )}
         <p>
           <BsCalendar size={16} title="Memory time" color="#2F0B4D" />
           Time of memory:
-          <span>{content.time}</span>
+          {/* <span>{memory.time}</span> */}
         </p>
       </div>
       {/* Memory content */}
-      <p className="Memory__content">{content.text}</p>
+      <p className="Memory__content">{memory.content}</p>
       {/* Users tagged in memory */}
-      {content.usernames && content.usernames.length && (
+      {memory.parties.length ? (
         <p className="Memory__tags">
           <BsPersonCheck
             size={16}
             title="Users tagged in memory"
             color="#2F0B4D"
           />
-          {content.usernames.length === 1 ? (
-            <Link to={`/user/${content.usernames[0]}`}>
-              {content.usernames[0]}
+          {memory.parties.filter((m) => m.public).length === 1 ? (
+            <Link to={`/user/${memory.parties[0].receiver.username}`}>
+              {memory.parties[0].receiver.username}
             </Link>
           ) : (
             <>
-              <Link to={`/user/${content.usernames[0]}`}>
-                {content.usernames[0]}
-              </Link>{", "}
-              <Link to={`/user/${content.usernames[1]}`}>
-                {content.usernames[1]}
+              <Link to={`/user/${memory.parties[0].receiver.username}`}>
+                {memory.parties[0].receiver.username}
+              </Link>
+              {", "}
+              <Link to={`/user/${memory.parties[1].receiver.username}`}>
+                {memory.parties[1].receiver.username}
               </Link>{" "}
             </>
           )}
-          {content.usernames.length > 2 && (
-            <button> and {content.usernames.length - 2} others</button>
+          {memory.parties.filter((m) => m.public).length > 2 && (
+            <button> and {memory.parties.length - 2} others</button>
           )}
         </p>
-      )}
+      ) : undefined}
       {/* Memory images and videos */}
       {attachments.length ? (
         <div className="Memory__attachments">
@@ -185,7 +167,7 @@ const Memory: React.FC<Props> = ({ user, content, isOwnProfile }) => {
             onClick={() => commentsRef.current.classList.toggle("active")}
           >
             <BsChatText size={16} title="Number of comments" color="#2F0B4D" />
-            {content.comments.length} Comments
+            {/* {content.comments.length} Comments */}
           </button>
           <button>
             <BsBell size={16} title="Remind memory" color="#2F0B4D" />
@@ -193,14 +175,14 @@ const Memory: React.FC<Props> = ({ user, content, isOwnProfile }) => {
           </button>
         </div>
         {/* Comments */}
-        {content.comments.map((comment, i) => (
+        {/* {content.comments.map((comment, i) => (
           <Comment
             key={i}
             user={comment.user}
             body={comment.body}
             replies={comment.replies}
           />
-        ))}
+        ))} */}
         {/* Write a comment */}
         <div className="Memory__comments__write">
           <textarea
@@ -216,5 +198,3 @@ const Memory: React.FC<Props> = ({ user, content, isOwnProfile }) => {
 };
 
 export default Memory;
-
-// TODO: Lock / unlock or delete memory if I'm a publisher

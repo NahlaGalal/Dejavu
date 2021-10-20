@@ -1,47 +1,12 @@
 import React, { useState } from "react";
 import Memory from "../components/Memory";
 import Navbar from "../components/Navbar";
-import { IUsers } from "../storeTypes";
+import { IMemories, IUsers } from "../storeTypes";
 import CreateGang from "./Popups/CreateGang";
 
 interface Props {
   profile: IUsers["profile"];
-  memories: {
-    user: {
-      username: string;
-      first_name: string;
-      last_name: string;
-      avatar: string;
-    };
-    content: {
-      text: string;
-      images?: string[];
-      videos?: string[];
-      isPrivate: boolean;
-      feeling: string;
-      time: string;
-      place?: string;
-      usernames?: string[];
-      comments: {
-        user: {
-          username: string;
-          first_name: string;
-          last_name: string;
-          avatar: string;
-        };
-        body: string;
-        replies: {
-          user: {
-            username: string;
-            first_name: string;
-            last_name: string;
-            avatar: string;
-          };
-          body: string;
-        }[];
-      }[];
-    };
-  }[];
+  memories: IMemories["results"]
   isOwnProfile: boolean;
   loading?: boolean;
   history?: any;
@@ -68,7 +33,7 @@ const Profile: React.FC<Props> = ({
         {/* User cover */}
         <div className="Profile__header__cover">
           <img
-            src="https://dejavu99.herokuapp.com/media/sliders/5cd3605b2100003000d37f48.jpeg"
+            src={`https://dejavu99.herokuapp.com${profile.cover}`}
             alt="Cover for profile"
           />
         </div>
@@ -132,9 +97,9 @@ const Profile: React.FC<Props> = ({
           <section className="Profile__main__details__memories">
             {memories.map((memory, i) => (
               <Memory
-                user={memory.user}
-                content={memory.content}
+                memory={memory}
                 isOwnProfile={isOwnProfile}
+                username={profile.username}
                 key={i}
               />
             ))}
