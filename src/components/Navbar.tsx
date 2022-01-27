@@ -11,7 +11,7 @@ import {
 import { BsClockHistory } from "react-icons/bs";
 import { GiCardRandom } from "react-icons/gi";
 import { useHistory } from "react-router-dom";
-import logo from "../images/Deja Vu.svg";
+import logo from "../images/logo2.svg";
 import { connect } from "react-redux";
 import { actionTypes } from "../actionTypes";
 
@@ -36,7 +36,7 @@ const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
   return (
     <>
       <nav className="Navbar">
-        <img src={logo} alt="Logo" />
+        <img src={logo} alt="Logo" height={35} />
         {auth ? (
           <>
             <ul className="Navbar__links">

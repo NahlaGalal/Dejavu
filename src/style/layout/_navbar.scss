@@ -12,7 +12,7 @@
   }
 
   &__links {
-    @media screen and (max-width: 589px) {
+    @media screen and (max-width: 619px) {
       display: none !important;
     }
 
@@ -53,7 +53,7 @@
   padding: 8px 5%;
   z-index: 1;
 
-  @media screen and (min-width: 590px) {
+  @media screen and (min-width: 620px) {
     display: none;
   }
 

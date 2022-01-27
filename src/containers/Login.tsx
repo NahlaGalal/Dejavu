@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Logo from "../images/logo.svg";
+import Logo from "../images/logo2.svg";
 import { IStore } from "../storeTypes";
 import { actionTypes } from "../actionTypes";
 import Loading from "../components/Loading";
