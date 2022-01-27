@@ -1,19 +1,20 @@
 .Home {
   &__header {
-    min-height: 100vh;
+    min-height: 300px;
+    max-height: 700px;
+    height: 100vh;
     display: flex;
-    
+
     .Navbar {
       position: absolute;
       width: 100%;
       background-color: rgba($color: $back-color, $alpha: 0.7);
     }
-    
+
     &__slide {
       background-color: rgba(0, 0, 0, 0.7);
       background-size: cover;
       background-blend-mode: overlay;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -23,7 +24,7 @@
       width: 20px;
       cursor: pointer;
       transition: $transition;
-      
+
       h2 {
         width: 80%;
         font-size: 0;
@@ -32,25 +33,80 @@
         text-align: center;
         transition: $transition;
       }
-      
+
       p {
         font-size: 0;
         width: 80%;
         text-align: center;
         transition: $transition;
       }
-      
+
       &.active {
         width: 100%;
         cursor: initial;
-        
+
         h2 {
           font-size: 40px;
         }
-        
+
         p {
           font-size: 20px;
         }
+      }
+    }
+  }
+
+  &__about {
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+
+    @media screen and (min-width: 600px) {
+      flex-direction: row;
+
+      &:nth-of-type(even) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &__img {
+      width: 100%;
+      border-radius: 400px;
+      object-fit: cover;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      @media screen and (min-width: 600px) {
+        width: calc(50% - 20px);
+        border-radius: 400px;
+        &:nth-of-type(even) img {
+          border-bottom-right-radius: 0;
+        }
+
+        &:nth-of-type(odd) img {
+          border-top-left-radius: 0;
+        }
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      &:nth-of-type(even) img {
+        border-bottom-right-radius: 0;
+      }
+
+      &:nth-of-type(odd) img {
+        border-top-left-radius: 0;
+      }
+    }
+
+    &__data {
+      &__title {
+        margin-bottom: 16px;
+        font-size: 24px;
+        font-family: $font-bold;
       }
     }
   }

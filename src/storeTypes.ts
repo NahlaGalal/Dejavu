@@ -7,9 +7,16 @@ export interface IUser {
 export interface IHome {
   sliders: {
     id: number;
-    title: "";
-    background: "";
-    description: "";
+    title: string;
+    background: string;
+    description: string;
+  }[];
+  about: {
+    id?: number;
+    title: string;
+    image?: string;
+    description: string;
+    order: number
   }[];
   errors: any;
 }

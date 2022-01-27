@@ -9,7 +9,9 @@ interface Props {
   loading: boolean;
   errors: any;
   sliders: IHome["sliders"];
+  aboutSections: IHome["about"];
   getSliders: () => void;
+  getAbout: () => void;
 }
 
 const Home: React.FC<Props> = ({
@@ -18,12 +20,15 @@ const Home: React.FC<Props> = ({
   errors,
   sliders,
   getSliders,
+  getAbout,
+  aboutSections
 }) => {
   const [activeSlide, setActiveSlide] = useState<number>(0);
 
   useEffect(() => {
     getSliders();
-  }, [getSliders]);
+    getAbout();
+  }, [getSliders, getAbout]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -51,6 +56,18 @@ const Home: React.FC<Props> = ({
           </div>
         ))}
       </header>
+
+      <main className="Home__main">
+        {aboutSections.map(sec => (
+          <section key={sec.title} className="Home__about">
+            <img src={sec.image} alt="Illustrated about" className="Home__about__img"/>
+            <div className="Home__about__data">
+              <h2 className="Home__about__data__title">{sec.title}</h2>
+              <p className="Home__about__data__desc">{sec.description}</p>
+            </div>
+          </section>
+        ))}
+      </main>
     </div>
   );
 };
@@ -60,10 +77,12 @@ const mapStateToProps = (state: IStore) => ({
   loading: state.loading,
   errors: state.home.errors,
   sliders: state.home.sliders,
+  aboutSections: state.home.about
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   getSliders: () => dispatch({ type: actionTypes.GET_SLIDERES_SAGA }),
+  getAbout: () => dispatch({ type: actionTypes.GET_ABOUT_SAGA }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
