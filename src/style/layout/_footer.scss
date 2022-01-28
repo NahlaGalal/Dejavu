@@ -1,0 +1,66 @@
+.Footer {
+  padding: 24px 5%;
+  background-color: $back-color;
+
+  @media screen and (max-width: 619px) {
+    margin-bottom: 56px;
+    border-bottom: 1px solid $primary-color;
+  }
+
+  &__section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  &__logo {
+    &__img {
+      width: 245px;
+      margin-bottom: 16px;
+    }
+
+    &__heading {
+      font-size: 24px;
+      font-family: $font-bold;
+      text-align: center;
+      color: $primary-color;
+    }
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 8px 16px;
+    max-height: 165px;
+
+    &__item {
+      flex: 1;
+
+      &__link {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        color: $primary-color;
+
+        span {
+          background-color: $light-color;
+          padding: 9px;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  &__rights {
+    padding-top: 24px;
+    border-top: 1px solid $primary-color;
+    color: $primary-color;
+    font-family: $font-medium;
+  }
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { actionTypes } from "../actionTypes";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { IHome, IStore } from "../storeTypes";
 
 interface Props {
@@ -68,6 +69,8 @@ const Home: React.FC<Props> = ({
           </section>
         ))}
       </main>
+
+      <Footer auth={!!token} />
     </div>
   );
 };
