@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
@@ -39,6 +39,7 @@ const Signup: React.FC<Props> = ({
     email: [],
     password: [],
   });
+  const inputsRef = useRef<HTMLInputElement[]>([]);
 
   const signupSchema = Yup.object().shape({
     username: Yup.string()
@@ -70,8 +71,11 @@ const Signup: React.FC<Props> = ({
     // Success
     if (success.signup) history.push("/login");
     // Errors
-    if (JSON.stringify(errors))
+    if (Object.keys(errors).length) {
       setServerErrors((s: any) => ({ ...s, ...errors }));
+      console.log(inputsRef.current)
+      inputsRef.current.reverse().map((inp) => inp.focus());
+    }
   }, [success, history, errors]);
 
   const blurHandler = (e: any) => {
@@ -119,12 +123,18 @@ const Signup: React.FC<Props> = ({
                       name="first_name"
                       onBlur={blurHandler}
                       onInput={resetServerErrors}
+                      innerRef={(el: HTMLInputElement) =>
+                        inputsRef.current[0] = el
+                      }
                     />
                     <label htmlFor="first_name">First name</label>
                     <ErrorMessage name="first_name">
                       {(msg) => (
                         <p className="Register__form__group__error">
-                          <BsExclamationTriangleFill color="#F7FFAE" size={16} />
+                          <BsExclamationTriangleFill
+                            color="#F7FFAE"
+                            size={16}
+                          />
                           {msg}
                         </p>
                       )}
@@ -137,12 +147,18 @@ const Signup: React.FC<Props> = ({
                       name="last_name"
                       onBlur={blurHandler}
                       onInput={resetServerErrors}
+                      innerRef={(el: HTMLInputElement) =>
+                        inputsRef.current[1] = el
+                      }
                     />
                     <label htmlFor="last_name">Last name</label>
                     <ErrorMessage name="last_name">
                       {(msg) => (
                         <p className="Register__form__group__error">
-                          <BsExclamationTriangleFill color="#F7FFAE" size={16} />
+                          <BsExclamationTriangleFill
+                            color="#F7FFAE"
+                            size={16}
+                          />
                           {msg}
                         </p>
                       )}
@@ -156,6 +172,9 @@ const Signup: React.FC<Props> = ({
                     name="username"
                     onBlur={blurHandler}
                     onInput={resetServerErrors}
+                    innerRef={(el: HTMLInputElement) =>
+                      inputsRef.current[2] = el
+                    }
                   />
                   <label htmlFor="username">User name</label>
                   <ErrorMessage name="username">
@@ -174,6 +193,9 @@ const Signup: React.FC<Props> = ({
                     name="email"
                     onBlur={blurHandler}
                     onInput={resetServerErrors}
+                    innerRef={(el: HTMLInputElement) =>
+                      inputsRef.current[3] = el
+                    }
                   />
                   <label htmlFor="email">Email</label>
                   <ErrorMessage name="email">
@@ -192,6 +214,9 @@ const Signup: React.FC<Props> = ({
                     name="password"
                     onBlur={blurHandler}
                     onInput={resetServerErrors}
+                    innerRef={(el: HTMLInputElement) =>
+                      inputsRef.current[4] = el
+                    }
                   />
                   <label htmlFor="password">Password</label>
                   <ErrorMessage name="password">
@@ -210,6 +235,9 @@ const Signup: React.FC<Props> = ({
                     name="confirm_password"
                     onBlur={blurHandler}
                     onInput={resetServerErrors}
+                    innerRef={(el: HTMLInputElement) =>
+                      inputsRef.current[5] = el
+                    }
                   />
                   <label htmlFor="confirm_password">Confirm password</label>
                   <ErrorMessage name="confirm_password">

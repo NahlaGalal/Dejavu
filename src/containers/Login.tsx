@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
@@ -28,6 +28,8 @@ const Login: React.FC<Props> = ({
     username: [],
     password: [],
   });
+  const inputNameRef = useRef<HTMLInputElement>();
+  const inputPasswordRef = useRef<HTMLInputElement>();
 
   const loginSchema = Yup.object().shape({
     username: Yup.string()
@@ -46,8 +48,11 @@ const Login: React.FC<Props> = ({
     // Success
     if (token) history.push("/");
     // Errors
-    if (JSON.stringify(errors))
+    if (Object.keys(errors).length) {
       setServerErrors((s: any) => ({ ...s, ...errors }));
+      inputPasswordRef.current?.focus();
+      inputNameRef.current?.focus();
+    }
   }, [token, history, errors]);
 
   const blurHandler = (e: any) => {
@@ -84,6 +89,7 @@ const Login: React.FC<Props> = ({
                     name="username"
                     onBlur={blurHandler}
                     onInput={resetServerErrors}
+                    innerRef={inputNameRef}
                   />
                   <label htmlFor="username">User name</label>
                   <ErrorMessage name="username">
@@ -102,6 +108,7 @@ const Login: React.FC<Props> = ({
                     name="password"
                     onBlur={blurHandler}
                     onInput={resetServerErrors}
+                    innerRef={inputPasswordRef}
                   />
                   <label htmlFor="password">Password</label>
                   <ErrorMessage name="password">
