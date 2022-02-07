@@ -80,7 +80,9 @@ const Login: React.FC<Props> = ({
               <Loading />
             ) : (
               <>
-                <img src={Logo} alt="Logo" className="Register__form__logo" />
+                <Link to={"/"}>
+                  <img src={Logo} alt="Logo" className="Register__form__logo" />
+                </Link>
                 <h1 className="Heading">Welcome to Deja vu</h1>
                 <div className="Register__form__group">
                   <Field

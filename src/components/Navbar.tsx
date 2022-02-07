@@ -36,7 +36,9 @@ const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
   return (
     <>
       <nav className="Navbar">
-        <img src={logo} alt="Logo" height={35} />
+        <Link to="/">
+          <img src={logo} alt="Logo" height={35} />
+        </Link>
         {auth ? (
           <>
             <ul className="Navbar__links">
@@ -116,12 +118,18 @@ const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
             </Link>
           </li>
           <li>
-            <Link to="/profile" className={activeTab === "/profile" ? "active" : ""}>
+            <Link
+              to="/profile"
+              className={activeTab === "/profile" ? "active" : ""}
+            >
               <FiUser size={24} title="Profile" />
             </Link>
           </li>
           <li>
-            <Link to="/gangs" className={activeTab === "/gangs" ? "active" : ""}>
+            <Link
+              to="/gangs"
+              className={activeTab === "/gangs" ? "active" : ""}
+            >
               <FiUsers size={24} title="Gangs" />
             </Link>
           </li>

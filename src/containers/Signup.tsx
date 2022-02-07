@@ -73,7 +73,7 @@ const Signup: React.FC<Props> = ({
     // Errors
     if (Object.keys(errors).length) {
       setServerErrors((s: any) => ({ ...s, ...errors }));
-      console.log(inputsRef.current)
+      console.log(inputsRef.current);
       inputsRef.current.reverse().map((inp) => inp.focus());
     }
   }, [success, history, errors]);
@@ -113,7 +113,9 @@ const Signup: React.FC<Props> = ({
               <Loading />
             ) : (
               <>
-                <img src={Logo} alt="Logo" className="Register__form__logo" />
+                <Link to="/">
+                  <img src={Logo} alt="Logo" className="Register__form__logo" />
+                </Link>
                 <h1 className="Heading">Welcome to Deja vu</h1>
                 <div className="Register__form__row">
                   <div className="Register__form__group Register__form__group--row">
@@ -124,7 +126,7 @@ const Signup: React.FC<Props> = ({
                       onBlur={blurHandler}
                       onInput={resetServerErrors}
                       innerRef={(el: HTMLInputElement) =>
-                        inputsRef.current[0] = el
+                        (inputsRef.current[0] = el)
                       }
                     />
                     <label htmlFor="first_name">First name</label>
@@ -148,7 +150,7 @@ const Signup: React.FC<Props> = ({
                       onBlur={blurHandler}
                       onInput={resetServerErrors}
                       innerRef={(el: HTMLInputElement) =>
-                        inputsRef.current[1] = el
+                        (inputsRef.current[1] = el)
                       }
                     />
                     <label htmlFor="last_name">Last name</label>
@@ -173,7 +175,7 @@ const Signup: React.FC<Props> = ({
                     onBlur={blurHandler}
                     onInput={resetServerErrors}
                     innerRef={(el: HTMLInputElement) =>
-                      inputsRef.current[2] = el
+                      (inputsRef.current[2] = el)
                     }
                   />
                   <label htmlFor="username">User name</label>
@@ -194,7 +196,7 @@ const Signup: React.FC<Props> = ({
                     onBlur={blurHandler}
                     onInput={resetServerErrors}
                     innerRef={(el: HTMLInputElement) =>
-                      inputsRef.current[3] = el
+                      (inputsRef.current[3] = el)
                     }
                   />
                   <label htmlFor="email">Email</label>
@@ -215,7 +217,7 @@ const Signup: React.FC<Props> = ({
                     onBlur={blurHandler}
                     onInput={resetServerErrors}
                     innerRef={(el: HTMLInputElement) =>
-                      inputsRef.current[4] = el
+                      (inputsRef.current[4] = el)
                     }
                   />
                   <label htmlFor="password">Password</label>
@@ -236,7 +238,7 @@ const Signup: React.FC<Props> = ({
                     onBlur={blurHandler}
                     onInput={resetServerErrors}
                     innerRef={(el: HTMLInputElement) =>
-                      inputsRef.current[5] = el
+                      (inputsRef.current[5] = el)
                     }
                   />
                   <label htmlFor="confirm_password">Confirm password</label>

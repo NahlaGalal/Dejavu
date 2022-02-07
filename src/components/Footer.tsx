@@ -14,7 +14,9 @@ const Footer: React.FC<Props> = ({ auth }) => {
     <footer className="Footer">
       <div className="Footer__section">
         <div className="Footer__logo">
-          <img src={Logo} alt="Logo" className="Footer__logo__img" />
+          <Link to={"/"}>
+            <img src={Logo} alt="Logo" className="Footer__logo__img" />
+          </Link>
           <p className="Footer__logo__heading">Dega-vu Memories</p>
         </div>
         <ul className="Footer__links">
