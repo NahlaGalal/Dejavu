@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Memory from "../components/Memory";
 import Navbar from "../components/Navbar";
 import { IMemories, IUsers } from "../storeTypes";
+import CreateMemory from "./CreateMemory";
 import CreateGang from "./Popups/CreateGang";
 
 interface Props {
@@ -95,6 +96,11 @@ const Profile: React.FC<Props> = ({
           </section>
 
           <section className="Profile__main__details__memories">
+            {/* Create memory */}
+            {!isOwnProfile && (
+              <CreateMemory />
+            )}
+
             {memories.map((memory, i) => (
               <Memory
                 memory={memory}

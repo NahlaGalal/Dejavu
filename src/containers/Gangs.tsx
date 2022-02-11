@@ -162,7 +162,7 @@ const Gangs = (props: Props) => {
               {gang.description}
             </p>
             <div className="Gangs__container__gang__open">
-              <Link to="/" className="btn btn-primary">Open</Link>
+              <Link to={"/gang/1"} className="btn btn-primary">Open</Link>
               <div className="Gangs__container__gang__open__members">
                 {gang.users.slice(0, 3).map((user) => (
                   <img

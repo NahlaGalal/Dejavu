@@ -1,0 +1,46 @@
+.Create-memory {
+  background-color: $back-color;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  &__header {
+    font-size: 24px;
+    font-family: $font-bold;
+    color: $primary-color;
+  }
+
+  &__settings {
+    margin-left: auto;
+    background-color: transparent;
+  }
+
+  &__text {
+    width: 100%;
+    border-radius: 5px;
+    height: 160px;
+    resize: vertical;
+    background-color: $light-color;
+    padding: 11px 16px;
+    color: $secondary-color;
+    font-size: 16px;
+  }
+
+  &__additions {
+    color: $primary-color;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background-color: transparent;
+    font-family: $font-medium;
+    font-size: 16px;
+  }
+
+  &__submit {
+    margin-left: auto;
+  }
+}
