@@ -64,7 +64,10 @@ const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link
+                  to="/memory-lane"
+                  className={activeTab === "/memory-lane" ? "active" : ""}
+                >
                   <BsClockHistory size={24} title="Memory lean" />
                 </Link>
               </li>

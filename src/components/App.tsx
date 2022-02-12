@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Gang from '../containers/Gang';
 import Gangs from '../containers/Gangs';
 import Home from '../containers/Home';
+import Lane from "../containers/Lane";
 import Login from '../containers/Login';
 import Me from '../containers/Me';
 import Signup from '../containers/Signup';
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/user/:username" component={User} />
         <Route exact path="/gangs" component={Gangs} />
         <Route exact path="/gang/:gangId" component={Gang} />
+        <Route exact path="/memory-lane" component={Lane} />
 
         <Redirect to="/" />
       </Switch>

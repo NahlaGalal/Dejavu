@@ -1,0 +1,27 @@
+.Lane {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url("../../images/background.jpg") rgba($color: $light-color, $alpha: 0.8);
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+
+  &__header {
+    h1 {
+      width: 80%;
+      text-align: center;
+      font-family: $font-bold;
+      color: $primary-color;
+      margin: 40px auto 24px;
+    }
+  }
+
+  &__main {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
