@@ -8,6 +8,17 @@
   justify-content: center;
   align-items: center;
   background: rgba($color: #000000, $alpha: 0.5);
+  z-index: 10000;
+
+  &--list {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background-color: transparent;
+    min-height: auto;
+    width: max-content;
+    left: unset;
+  }
   
   &__container {
     width: 600px;
@@ -16,5 +27,10 @@
     box-shadow: 0 0 10px rgba($color: $primary-color, $alpha: 0.5);
     border-radius: 20px;
     padding: 40px 24px;
+
+    .Popup--list & {
+      width: 188px;
+      padding: 16px;
+    }
   }
 }

@@ -1,0 +1,14 @@
+.Write-memory {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  button, label {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+}

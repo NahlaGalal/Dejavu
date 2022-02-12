@@ -1,16 +1,22 @@
+import React, { useState } from "react";
 import {
   BsThreeDotsVertical,
   BsEmojiExpressionless,
   BsCalendar,
 } from "react-icons/bs";
+import WriteMemorySettings from "./Popups/WriteMemorySettings";
 
 type Props = {};
 
-const CreateMemory = (props: Props) => {
+const CreateMemory: React.FC<Props> = () => {
+  const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
+
+  const openSettings = () => setSettingsOpen(true);
+
   return (
     <div className="Create-memory">
       <h2 className="Create-memory__header">Create your memory now</h2>
-      <button className="Create-memory__settings">
+      <button className="Create-memory__settings" onClick={openSettings}>
         <BsThreeDotsVertical size={16} color="#2F0B4D" title="More settings" />
       </button>
       <textarea name="memory" id="memory" className="Create-memory__text" />
@@ -27,6 +33,10 @@ const CreateMemory = (props: Props) => {
         Add time of memory*
       </button>
       <button className="btn btn-primary Create-memory__submit">Publish</button>
+
+      {settingsOpen && (
+        <WriteMemorySettings onClose={() => setSettingsOpen(false)} />
+      )}
     </div>
   );
 };

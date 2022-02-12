@@ -200,8 +200,13 @@ const Gang: React.FC<Props> = ({ loading = false, username = "" }) => {
           <CreateMemory />
 
           {/* Show all memories */}
-          {data.memories.map((memory) => (
-            <Memory memory={memory} isOwnProfile={true} username={username} />
+          {data.memories.map((memory, id) => (
+            <Memory
+              memory={memory}
+              isOwnProfile={true}
+              username={username}
+              key={id}
+            />
           ))}
         </section>
       </main>
