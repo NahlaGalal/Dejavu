@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import EditProfile from "../containers/EditProfile";
 import Gang from '../containers/Gang';
 import Gangs from '../containers/Gangs';
 import Home from '../containers/Home';
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/gangs" component={Gangs} />
         <Route exact path="/gang/:gangId" component={Gang} />
         <Route exact path="/memory-lane" component={Lane} />
+        <Route exact path="/edit-profile" component={EditProfile} />
 
         <Redirect to="/" />
       </Switch>

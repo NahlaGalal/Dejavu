@@ -89,7 +89,9 @@ const Navbar: React.FC<Props> = ({ auth = true, logoutUser }) => {
                 </button>
               </li>
               <li>
-                <FiUser size={24} color="#2F0B4D" title="Edit profile" />
+                <Link to="/edit-profile">
+                  <FiUser size={24} color="#2F0B4D" title="Edit profile" />
+                </Link>
               </li>
               <li>
                 <button onClick={logoutHandler}>
