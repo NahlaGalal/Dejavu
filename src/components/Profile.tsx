@@ -34,7 +34,7 @@ const Profile: React.FC<Props> = ({
         {/* User cover */}
         <div className="Profile__header__cover">
           <img
-            src={`https://dejavu99.herokuapp.com${profile.cover}`}
+            src={`https://eibrahim95.pythonanywhere.com/${profile.cover}`}
             alt="Cover for profile"
           />
         </div>
@@ -44,7 +44,7 @@ const Profile: React.FC<Props> = ({
           <div className="Profile__main__user_data__avatar">
             {/* User avatar */}
             <img
-              src={`https://dejavu99.herokuapp.com${profile.avatar}`}
+              src={`https://eibrahim95.pythonanywhere.com/${profile.avatar}`}
               alt="User avatar"
             />
           </div>
@@ -97,9 +97,7 @@ const Profile: React.FC<Props> = ({
 
           <section className="Profile__main__details__memories">
             {/* Create memory */}
-            {!isOwnProfile && (
-              <CreateMemory />
-            )}
+            {!isOwnProfile && <CreateMemory />}
 
             {memories.map((memory, i) => (
               <Memory

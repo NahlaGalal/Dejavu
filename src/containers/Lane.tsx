@@ -17,8 +17,8 @@ const memories: IMemory[] = [
       username: "elsaeed",
       first_name: "Elsaeed",
       last_name: "Ahmed",
-      avatar: "https://dejavu99.herokuapp.com/media/images/avatar.png",
-      cover: "https://dejavu99.herokuapp.com/media/images/avatar.png",
+      avatar: "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
+      cover: "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
       bio: "",
     },
     parties: [],
@@ -39,22 +39,22 @@ const memories: IMemory[] = [
     images: [
       {
         image:
-          "https://dejavu99.herokuapp.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
+          "https://eibrahim95.pythonanywhere.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
         video: "",
       },
       {
         image:
-          "https://dejavu99.herokuapp.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
+          "https://eibrahim95.pythonanywhere.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
         video: "",
       },
       {
         image:
-          "https://dejavu99.herokuapp.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
+          "https://eibrahim95.pythonanywhere.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
         video: "",
       },
       {
         image:
-          "https://dejavu99.herokuapp.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
+          "https://eibrahim95.pythonanywhere.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
         video: "",
       },
     ],
@@ -77,8 +77,8 @@ const memories: IMemory[] = [
       username: "elsaeed",
       first_name: "Elsaeed",
       last_name: "Ahmed",
-      avatar: "https://dejavu99.herokuapp.com/media/images/avatar.png",
-      cover: "https://dejavu99.herokuapp.com/media/images/avatar.png",
+      avatar: "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
+      cover: "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
       bio: "",
     },
     parties: [],

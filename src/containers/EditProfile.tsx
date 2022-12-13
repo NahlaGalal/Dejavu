@@ -33,9 +33,9 @@ const EditProfile: React.FC<Props> = ({
     last_name: "Galal",
     email: "nahlaglal@gmail.com",
     username: "nahlaglla",
-    avatar: "https://dejavu99.herokuapp.com/media/images/avatar.png",
+    avatar: "https://eibrahim95.pythonanywhere.com//media/images/avatar.png",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper at tellus integer ac gravida. Sed urna sed auctor pellentesque. Eu non sit amet, sed adipiscing cursus rhoncus velit in. Vivamus dolor porttitor sit arcu luctus id. Cursus sollicitudin pulvinar sagittis posuere quam lectus nibh cursus. Amet, pharetra, et, proin aliquet bibendum. Nulla aenean sit in mattis.",
-    cover: "https://dejavu99.herokuapp.com/media/images/avatar.png",
+    cover: "https://eibrahim95.pythonanywhere.com//media/images/avatar.png",
   },
 }) => {
   const [serverErrors, setServerErrors] = useState<any>({

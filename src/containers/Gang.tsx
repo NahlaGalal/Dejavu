@@ -34,8 +34,8 @@ const data: {
         username: "elsaeed",
         first_name: "Elsaeed",
         last_name: "Ahmed",
-        avatar: "https://dejavu99.herokuapp.com/media/images/avatar.png",
-        cover: "https://dejavu99.herokuapp.com/media/images/avatar.png",
+        avatar: "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
+        cover: "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
         bio: "",
       },
       parties: [],
@@ -56,22 +56,22 @@ const data: {
       images: [
         {
           image:
-            "https://dejavu99.herokuapp.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
+            "https://eibrahim95.pythonanywhere.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
           video: "",
         },
         {
           image:
-            "https://dejavu99.herokuapp.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
+            "https://eibrahim95.pythonanywhere.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
           video: "",
         },
         {
           image:
-            "https://dejavu99.herokuapp.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
+            "https://eibrahim95.pythonanywhere.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
           video: "",
         },
         {
           image:
-            "https://dejavu99.herokuapp.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
+            "https://eibrahim95.pythonanywhere.com/media/sliders/5cd3605b2100003000d37f48.jpeg",
           video: "",
         },
       ],
@@ -94,8 +94,8 @@ const data: {
         username: "elsaeed",
         first_name: "Elsaeed",
         last_name: "Ahmed",
-        avatar: "https://dejavu99.herokuapp.com/media/images/avatar.png",
-        cover: "https://dejavu99.herokuapp.com/media/images/avatar.png",
+        avatar: "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
+        cover: "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
         bio: "",
       },
       parties: [],
@@ -126,7 +126,7 @@ const data: {
               username: "elsaeed",
               first_name: "El-Saeed",
               last_name: "Ahmed",
-              avatar: "https://dejavu99.herokuapp.com/media/images/avatar.png",
+              avatar: "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
             },
             body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper at tellus integer ac gravida. Sed urna sed auctor pellentesque. Eu non sit amet, sed adipiscing cursus rhoncus velit in. Vivamus dolor porttitor sit arcu luctus id. Cursus sollicitudin pulvinar sagittis posuere quam lectus nibh cursus. Amet, pharetra, et, proin aliquet bibendum. Nulla aenean sit in mattis.",
             replies: [],
@@ -136,7 +136,7 @@ const data: {
               username: "elsaeed",
               first_name: "El-Saeed",
               last_name: "Ahmed",
-              avatar: "https://dejavu99.herokuapp.com/media/images/avatar.png",
+              avatar: "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
             },
             body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper at tellus integer ac gravida. Sed urna sed auctor pellentesque. Eu non sit amet, sed adipiscing cursus rhoncus velit in. Vivamus dolor porttitor sit arcu luctus id. Cursus sollicitudin pulvinar sagittis posuere quam lectus nibh cursus. Amet, pharetra, et, proin aliquet bibendum. Nulla aenean sit in mattis.",
             replies: [
@@ -146,7 +146,7 @@ const data: {
                   first_name: "El-Saeed",
                   last_name: "Ahmed",
                   avatar:
-                    "https://dejavu99.herokuapp.com/media/images/avatar.png",
+                    "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
                 },
                 body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper at tellus integer ac gravida. Sed urna sed auctor pellentesque. Eu non sit amet, sed adipiscing cursus rhoncus velit in. Vivamus dolor porttitor sit arcu luctus id. Cursus sollicitudin pulvinar sagittis posuere quam lectus nibh cursus. Amet, pharetra, et, proin aliquet bibendum. Nulla aenean sit in mattis.",
               },
@@ -156,7 +156,7 @@ const data: {
                   first_name: "El-Saeed",
                   last_name: "Ahmed",
                   avatar:
-                    "https://dejavu99.herokuapp.com/media/images/avatar.png",
+                    "https://eibrahim95.pythonanywhere.com/media/images/avatar.png",
                 },
                 body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper at tellus integer ac gravida. Sed urna sed auctor pellentesque. Eu non sit amet, sed adipiscing cursus rhoncus velit in. Vivamus dolor porttitor sit arcu luctus id. Cursus sollicitudin pulvinar sagittis posuere quam lectus nibh cursus. Amet, pharetra, et, proin aliquet bibendum. Nulla aenean sit in mattis.",
               },

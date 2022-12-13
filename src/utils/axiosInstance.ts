@@ -4,5 +4,5 @@ import axios from "axios";
 //   "62d8b19cd3d4928728a16d95eabd84ade9c925be";
 
 export default axios.create({
-  baseURL: "https://dejavu99.herokuapp.com/api/v1",
+  baseURL: "https://eibrahim95.pythonanywhere.com/api/v1",
 });
