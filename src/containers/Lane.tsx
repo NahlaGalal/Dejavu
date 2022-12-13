@@ -61,7 +61,8 @@ const memories: IMemory[] = [
     videos: [
       {
         image: "",
-        video: "https://i.temp.media/video/500-x-400-10.mp4",
+        video:
+          "https://archive.org/download/Starry_Sky_Time_Lapse/Stars%20H264.mp4",
       },
     ],
   },
